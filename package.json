@@ -1,0 +1,18 @@
+{
+  "name": "week3",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "tw": "bunx @tailwindcss/cli -i ./src/input.css -o ./dist/global.css --watch",
+    "dev": "concurrently \"bun run tw\" \"bun build ./dist/main.js --outdir ./dist\" \"bun run index.html\""
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "tailwindcss": "^4.1.8",
+    "typed.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
