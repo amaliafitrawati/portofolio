@@ -5,8 +5,10 @@
   "private": true,
   "scripts": {
     "tw": "bunx @tailwindcss/cli -i ./src/input.css -o ./dist/global.css --watch",
+    "copy-css": "cp ./dist/global.css ./public/global.css",
+    "copy-assets": "cp -r ./asset ./public/assets",
     "copy-html": "cp index.html public/index.html",
-    "build": "bun build ./dist/main.js --outdir ./public && bun run copy-html",
+    "build": "bun run copy-css && bun run copy-assets && bun build ./dist/main.js --outdir ./public && bun run copy-html",
     "dev": "concurrently \"bun run tw\" \"bun run build\" \"bun run index.html\""
   },
   "dependencies": {
