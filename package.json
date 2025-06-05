@@ -3,13 +3,11 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
-  "scripts": {
-    "tw": "bunx @tailwindcss/cli -i ./src/input.css -o ./dist/global.css --watch",
-    "copy-css": "cp ./dist/global.css ./public/global.css",
-    "copy-assets": "cp -r ./asset ./public/assets",
-    "copy-html": "cp index.html public/index.html",
-    "build": "bun run copy-css && bun run copy-assets && bun build ./dist/main.js --outdir ./public && bun run copy-html",
-    "dev": "concurrently \"bun run tw\" \"bun run build\" \"bun run index.html\""
+   "scripts": {
+    "tw:dev": "bunx  @tailwindcss/cli -i ./src/global.css -o ./dist/global.css --watch",
+    "tw:build": "bunx @tailwindcss/cli -i ./src/global.css -o ./dist/global.css",
+    "dev": "concurrently \"bun run tw:dev\" \"bun build ./src/main.js --outdir ./dist --watch\" \"bun run index.html\"",
+    "build": "concurrently \"bun run tw:build\" \"bun build ./src/main.js --outdir ./dist\""
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.8",

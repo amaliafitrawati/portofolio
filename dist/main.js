@@ -194,7 +194,8 @@ var i = /* @__PURE__ */ function() {
   }, t2;
 }();
 
-// dist/main.js
+// src/main.js
 var myTyped = new i("#typedText", {
-  strings: ["Software Developer", "Java Developer", "Web Developer"]
+  strings: ["Software Developer", "Web Developer", "Java Developer"],
+  loop: true
 });
